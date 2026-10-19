@@ -1,0 +1,14 @@
+<app-add-todo (todoAdded)="onTodoAdded($event)"></app-add-todo>
+<strong *ngIf="isLoading">Loading...</strong>
+
+<div *ngIf="todos.length > 0 && !isLoading && !errorMessage">
+  <ul>
+    <li *ngFor="let item of todos; trackBy: trackByTodoId">{{ item.title }}</li>
+  </ul>
+</div>
+<div *ngIf="errorMessage && !isLoading">
+  <strong class="error-message">{{ errorMessage }}</strong>
+</div>
+<div *ngIf="!errorMessage && todos.length < 1 && !isLoading">
+  <strong>No List yet</strong>
+</div>

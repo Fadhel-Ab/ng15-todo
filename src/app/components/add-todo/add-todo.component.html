@@ -1,0 +1,12 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <input formControlName="title" />
+  <button
+    [disabled]="form.controls.title.invalid || isSubmitting"
+    type="submit"
+  >
+    Add
+  </button>
+  <div>
+    <strong *ngIf="errorMessage && !isSubmitting">{{ errorMessage }}</strong>
+  </div>
+</form>
